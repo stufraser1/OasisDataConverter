@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.transformers.transform &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.types" href="../../types/index.html" />
+    <link rel="prev" title="converter.transformers.grammar" href="../grammar/index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.transformers.transform">
+<span id="converter-transformers-transform"></span><h1><a class="reference internal" href="#module-converter.transformers.transform" title="converter.transformers.transform"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.transformers.transform</span></code></a><a class="headerlink" href="#module-converter.transformers.transform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.TransformerMapping" title="converter.transformers.transform.TransformerMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransformerMapping</span></code></a>()</p></td>
+<td><p>A simple typed namespace. At runtime it is equivalent to a plain dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.GroupWrapper" title="converter.transformers.transform.GroupWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroupWrapper</span></code></a>(values)</p></td>
+<td><p>Group operations preformed on a list of elements</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.AnyWrapper" title="converter.transformers.transform.AnyWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnyWrapper</span></code></a>(values)</p></td>
+<td><p>Wraps the values and checks if any of their values return true when tested</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.AllWrapper" title="converter.transformers.transform.AllWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AllWrapper</span></code></a>(values)</p></td>
+<td><p>Wraps the values and checks if all of their values return true when tested</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.BaseTreeTransformer" title="converter.transformers.transform.BaseTreeTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTreeTransformer</span></code></a>(visit_tokens=True)</p></td>
+<td><p>Abstract implementation of the Tree transformer class</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.default_in_transformer" title="converter.transformers.transform.default_in_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_in_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p>Performs the in check of the lhs in in the rhs. If the lhs has an <cite>is_in</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.default_not_in_transformer" title="converter.transformers.transform.default_not_in_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_not_in_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p>Performs the in check of the lhs is not in the rhs. If the lhs has an</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.default_replace" title="converter.transformers.transform.default_replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_replace</span></code></a>(row, target, *pattern_repl)</p></td>
+<td><p>Replaces the pattern in the target string with a given string. The pattern</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.default_match" title="converter.transformers.transform.default_match"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_match</span></code></a>(row, target, pattern: Pattern)</p></td>
+<td><p>Checks if a pattern matches the target. The pattern can be either a string</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.default_search" title="converter.transformers.transform.default_search"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_search</span></code></a>(row, target, pattern: Pattern)</p></td>
+<td><p>Checks if a pattern is in the target. The pattern can be either a string</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.default_join" title="converter.transformers.transform.default_join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_join</span></code></a>(row, join, *elements)</p></td>
+<td><p>Joins a set of objects as strings</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.create_transformer_class" title="converter.transformers.transform.create_transformer_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_transformer_class</span></code></a>(row, transformer_mapping)</p></td>
+<td><p>Creates a transformer class from the provided mapping overrides.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.parse" title="converter.transformers.transform.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a>(expression: Union[str, Tree])</p></td>
+<td><p>Parse an expression from the transformation language</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.transformers.transform.transform" title="converter.transformers.transform.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(row, tree: Tree, transformer_mapping: TransformerMapping = None)</p></td>
+<td><p>Performs the transformation on the row</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.transformers.transform.run" title="converter.transformers.transform.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(row, expression: Union[str, Tree], transformer_mapping: TransformerMapping = None)</p></td>
+<td><p>Runs a transformation expression on a row</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="converter.transformers.transform.RowType">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">RowType</code><a class="headerlink" href="#converter.transformers.transform.RowType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.transformers.transform.TransformerMapping">
+<em class="property">class </em><code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">TransformerMapping</code><a class="headerlink" href="#converter.transformers.transform.TransformerMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypedDict</span></code></p>
+<p>A simple typed namespace. At runtime it is equivalent to a plain dict.</p>
+<p>TypedDict creates a dictionary type that expects all of its
+instances to have a certain set of keys, where each key is
+associated with a value of a consistent type. This expectation
+is not checked at runtime but is only enforced by type checkers.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">a</span><span class="p">:</span> <span class="n">Point2D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;good&#39;</span><span class="p">}</span>  <span class="c1"># OK</span>
+<span class="n">b</span><span class="p">:</span> <span class="n">Point2D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;bad&#39;</span><span class="p">}</span>           <span class="c1"># Fails type check</span>
+
+<span class="k">assert</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The type info can be accessed via Point2D.__annotations__. TypedDict
+supports two additional equivalent forms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Point2D</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span><span class="s1">&#39;Point2D&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">Point2D</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span><span class="s1">&#39;Point2D&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>By default, all keys must be present in a TypedDict. It is possible
+to override this by specifying totality.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">point2D</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<p>This means that a point2D TypedDict can have any of the keys omitted.A type
+checker is only expected to support a literal False or True as the value of
+the total argument. True is the default, and makes all items defined in the
+class body be required.</p>
+<p>The class syntax is only supported in Python 3.6+, while two other
+syntax forms work for Python 2.7 and 3.2+</p>
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.lookup">
+<code class="sig-name descname">lookup</code><em class="property"> :Callable[[RowType, str], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.add">
+<code class="sig-name descname">add</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.subtract">
+<code class="sig-name descname">subtract</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.subtract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.multiply">
+<code class="sig-name descname">multiply</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.multiply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.divide">
+<code class="sig-name descname">divide</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.divide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.eq">
+<code class="sig-name descname">eq</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.not_eq">
+<code class="sig-name descname">not_eq</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.not_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.is_in">
+<code class="sig-name descname">is_in</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.is_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.not_in">
+<code class="sig-name descname">not_in</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.not_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.gt">
+<code class="sig-name descname">gt</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.gt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.gte">
+<code class="sig-name descname">gte</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.gte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.lt">
+<code class="sig-name descname">lt</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.lt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.lte">
+<code class="sig-name descname">lte</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.lte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.logical_and">
+<code class="sig-name descname">logical_and</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.logical_and" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.logical_or">
+<code class="sig-name descname">logical_or</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.logical_or" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.logical_not">
+<code class="sig-name descname">logical_not</code><em class="property"> :Callable[[RowType, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.logical_not" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.all">
+<code class="sig-name descname">all</code><em class="property"> :Callable[[RowType, List[Any]], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.any">
+<code class="sig-name descname">any</code><em class="property"> :Callable[[RowType, List[Any]], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.any" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.str_join">
+<code class="sig-name descname">str_join</code><em class="property"> :Callable[..., Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.str_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.str_replace">
+<code class="sig-name descname">str_replace</code><em class="property"> :Callable[[RowType, Any, Pattern, str], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.str_replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.str_match">
+<code class="sig-name descname">str_match</code><em class="property"> :Callable[[RowType, Any, Pattern], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.str_match" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.TransformerMapping.str_search">
+<code class="sig-name descname">str_search</code><em class="property"> :Callable[[RowType, Any, Pattern], Any]</em><a class="headerlink" href="#converter.transformers.transform.TransformerMapping.str_search" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.transformers.transform.GroupWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">GroupWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group operations preformed on a list of elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – A list of the grouped values</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.check_fn">
+<em class="property">abstract </em><code class="sig-name descname">check_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">checks</span><span class="p">:</span> <span class="n">Iterable<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.check_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the results of the operator. This should be a reduction of each
+result in the values list into a single value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checks</strong> – The results from the operator comparison</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.eq_operator">
+<code class="sig-name descname">eq_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.eq_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the equality of elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the elements are equal, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__eq__">
+<code class="sig-name descname">__eq__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group equals the other based on the <cite>check_fn</cite> and
+<cite>eq_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__ne__">
+<code class="sig-name descname">__ne__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group does not equal the other based on the <cite>check_fn</cite>
+and the inverse of the <cite>eq_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.gt_operator">
+<code class="sig-name descname">gt_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.gt_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is greater than the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs &gt; rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__gt__">
+<code class="sig-name descname">__gt__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__gt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is greater than the other based on the <cite>check_fn</cite>
+and the <cite>gt_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.gte_operator">
+<code class="sig-name descname">gte_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.gte_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is greater than or equal to
+the right hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs &gt;= rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__ge__">
+<code class="sig-name descname">__ge__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__ge__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is greater than or equal to the other based on the
+<cite>check_fn</cite> and the <cite>gte_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.lt_operator">
+<code class="sig-name descname">lt_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.lt_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is less than the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs &lt; rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__lt__">
+<code class="sig-name descname">__lt__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__lt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is less than the other based on the <cite>check_fn</cite>
+and the <cite>lt_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.lte_operator">
+<code class="sig-name descname">lte_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.lte_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is less than or equal to the
+right hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs &gt; rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.__le__">
+<code class="sig-name descname">__le__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.__le__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is less than or equal to the other based on the `
+check_fn` and the <cite>le_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.in_operator">
+<code class="sig-name descname">in_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.in_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is contained in the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs in rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.is_in">
+<code class="sig-name descname">is_in</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.is_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is in the other based on the <cite>check_fn</cite> and the
+<cite>in_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.not_in_operator">
+<code class="sig-name descname">not_in_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.not_in_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is not contained in the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs not in rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.GroupWrapper.is_not_in">
+<code class="sig-name descname">is_not_in</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.GroupWrapper.is_not_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the group is not in the other based on the <cite>check_fn</cite> and the
+<cite>not_in_operator</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to check each element against</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.transformers.transform.AnyWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">AnyWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.AnyWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#converter.transformers.transform.GroupWrapper" title="converter.transformers.transform.GroupWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.transformers.transform.GroupWrapper</span></code></a></p>
+<p>Wraps the values and checks if any of their values return true when tested</p>
+<dl class="py method">
+<dt id="converter.transformers.transform.AnyWrapper.check_fn">
+<code class="sig-name descname">check_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">checks</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.AnyWrapper.check_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the results of the operator. This should be a reduction of each
+result in the values list into a single value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checks</strong> – The results from the operator comparison</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.transformers.transform.AllWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">AllWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.AllWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#converter.transformers.transform.GroupWrapper" title="converter.transformers.transform.GroupWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.transformers.transform.GroupWrapper</span></code></a></p>
+<p>Wraps the values and checks if all of their values return true when tested</p>
+<dl class="py method">
+<dt id="converter.transformers.transform.AllWrapper.check_fn">
+<code class="sig-name descname">check_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">checks</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.AllWrapper.check_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the results of the operator. This should be a reduction of each
+result in the values list into a single value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checks</strong> – The results from the operator comparison</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_in_transformer">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_in_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_in_transformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the in check of the lhs in in the rhs. If the lhs has an <cite>is_in</cite>
+method this is used, if not the <cite>in</cite> operator is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being checked (not used)</p></li>
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs is in right, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_not_in_transformer">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_not_in_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_not_in_transformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the in check of the lhs is not in the rhs. If the lhs has an
+<cite>is_not_in</cite> method this is used, if not the <cite>not in</cite> operator is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being checked (not used)</p></li>
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs is not in right, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_replace">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_replace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">pattern_repl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the pattern in the target string with a given string. The pattern
+can be either a string or regular expression, if a regular expression is
+used groups can be used in the replacement string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being transformed (not used)</p></li>
+<li><p><strong>target</strong> – The value to perform the replacement on</p></li>
+<li><p><strong>pattern_repl</strong> – Any number of parameters that have pattern and
+replacement strings, there should be an even number of elements
+with the 1st, 3rd, 5th etc representing the patterns and teh 2nd,
+4th, 6th ets representing the corresponding replacements</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformed object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_match">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="p">:</span> <span class="n">Pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a pattern matches the target. The pattern can be either a string
+or regular expression, if a string is used it is the same as
+<cite>pattern == target</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being checked (not used)</p></li>
+<li><p><strong>target</strong> – The value to perform the check on</p></li>
+<li><p><strong>pattern</strong> – The pattern to find match the target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the pattern matches the pattern, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_search">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="p">:</span> <span class="n">Pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a pattern is in the target. The pattern can be either a string
+or regular expression, if a string is used it is the same as
+<cite>pattern in target</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being checked (not used)</p></li>
+<li><p><strong>target</strong> – The value to perform the check on</p></li>
+<li><p><strong>pattern</strong> – The pattern to find in the target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the pattern matches the pattern, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.default_join">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">default_join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">join</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">elements</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.default_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Joins a set of objects as strings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row being transformed (not used)</p></li>
+<li><p><strong>join</strong> – The string used to join the elements</p></li>
+<li><p><strong>elements</strong> – The elements to join</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The joined string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.transformers.transform.BaseTreeTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">BaseTreeTransformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visit_tokens</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lark.Transformer</span></code></p>
+<p>Abstract implementation of the Tree transformer class</p>
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.lookup">
+<code class="sig-name descname">lookup</code><em class="property"> :Callable[[RowType, str], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.add">
+<code class="sig-name descname">add</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.subtract">
+<code class="sig-name descname">subtract</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.subtract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.multiply">
+<code class="sig-name descname">multiply</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.multiply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.divide">
+<code class="sig-name descname">divide</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.divide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.eq">
+<code class="sig-name descname">eq</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.not_eq">
+<code class="sig-name descname">not_eq</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.not_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.is_in">
+<code class="sig-name descname">is_in</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.is_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.not_in">
+<code class="sig-name descname">not_in</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.not_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.gt">
+<code class="sig-name descname">gt</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.gt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.gte">
+<code class="sig-name descname">gte</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.gte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.lt">
+<code class="sig-name descname">lt</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.lt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.lte">
+<code class="sig-name descname">lte</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.lte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.logical_not">
+<code class="sig-name descname">logical_not</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.logical_not" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.logical_or">
+<code class="sig-name descname">logical_or</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.logical_or" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.logical_and">
+<code class="sig-name descname">logical_and</code><em class="property"> :Callable[[RowType, Any, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.logical_and" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.any">
+<code class="sig-name descname">any</code><em class="property"> :Callable[[RowType, List[Any]], GroupWrapper]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.any" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.all">
+<code class="sig-name descname">all</code><em class="property"> :Callable[[RowType, List[Any]], GroupWrapper]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.str_join">
+<code class="sig-name descname">str_join</code><em class="property"> :Callable[..., Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.str_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.str_replace">
+<code class="sig-name descname">str_replace</code><em class="property"> :Callable[[RowType, Any, Pattern, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.str_replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.str_match">
+<code class="sig-name descname">str_match</code><em class="property"> :Callable[[RowType, Any, Pattern, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.str_match" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.str_search">
+<code class="sig-name descname">str_search</code><em class="property"> :Callable[[RowType, Any, Pattern, Any], Any]</em><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.str_search" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.array">
+<code class="sig-name descname">array</code><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.transformers.transform.BaseTreeTransformer.string_escape_re">
+<code class="sig-name descname">string_escape_re</code><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.string_escape_re" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.string">
+<code class="sig-name descname">string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a string from the transformer language and performs any
+necessary escaping. <cite>value</cite> has a default value to account for the
+empty string case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value to parse</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The parsed value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.regex">
+<code class="sig-name descname">regex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a regex from teh provided string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The pattern</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The regex object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.iregex">
+<code class="sig-name descname">iregex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.iregex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a case insensitive regex from teh provided string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The pattern</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The regex object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.boolean">
+<code class="sig-name descname">boolean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pareses a boolean from the transformer language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value to parse</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the value is “True”, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.null">
+<code class="sig-name descname">null</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.null" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pareses a null from the transformer language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value to parse (ignored as its always Null)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.transformers.transform.BaseTreeTransformer.number">
+<code class="sig-name descname">number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.BaseTreeTransformer.number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a number from the transformer language. First tries to parse an
+integer but on failure parses as a float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value to parse</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The parsed value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.create_transformer_class">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">create_transformer_class</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">transformer_mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.create_transformer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a transformer class from the provided mapping overrides.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row to transform</p></li>
+<li><p><strong>transformer_mapping</strong> – The overrides for the transform functions</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new transformer class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.parse">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>Tree<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Tree<a class="headerlink" href="#converter.transformers.transform.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an expression from the transformation language</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>expression</strong> – The expression to pass</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The parsd expression tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.transform">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span></em>, <em class="sig-param"><span class="n">transformer_mapping</span><span class="p">:</span> <span class="n">TransformerMapping</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the transformation on the row</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row to transform</p></li>
+<li><p><strong>tree</strong> – The parsed tree for the expression</p></li>
+<li><p><strong>transformer_mapping</strong> – Overrides for the transformer operations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformation result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.transformers.transform.run">
+<code class="sig-prename descclassname">converter.transformers.transform.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>Tree<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">transformer_mapping</span><span class="p">:</span> <span class="n">TransformerMapping</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.transformers.transform.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs a transformation expression on a row</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row to transform</p></li>
+<li><p><strong>expression</strong> – The transformation to perform</p></li>
+<li><p><strong>transformer_mapping</strong> – Overrides for the transformer operations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformed result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.transformers</span></code></a><ul>
+      <li>Previous: <a href="../grammar/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.transformers.grammar</span></code></a></li>
+      <li>Next: <a href="../../types/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.types</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/transformers/transform/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

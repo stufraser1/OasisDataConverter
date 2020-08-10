@@ -1,0 +1,16 @@
+:mod:`converter.config.errors`
+==============================
+
+.. py:module:: converter.config.errors
+
+
+Module Contents
+---------------
+
+.. py:exception:: ConfigurationError
+
+   Bases: :class:`converter.errors.ConverterError`
+
+   Raised if there are any configuration errors.
+
+

@@ -1,0 +1,36 @@
+:mod:`converter.runner.eager`
+=============================
+
+.. py:module:: converter.runner.eager
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   converter.runner.eager.EagerRunner
+
+
+
+.. py:class:: EagerRunner
+
+   Bases: :class:`converter.runner.base.BaseAsyncRunner`
+
+   .. method:: transform(self, extractor: BaseConnector, mapping: BaseMapping)
+      :async:
+
+
+      Runs the transformation on each row as its passed in and yields the
+      result to the loader
+
+      :param extractor: The data connection to extract data from
+      :param mapping: Mapping object describing the transformations to apply
+
+      :return: An async iterable containing the transformed data
+
+
+

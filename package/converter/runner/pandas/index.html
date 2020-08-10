@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.runner.pandas &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.transformers" href="../../transformers/index.html" />
+    <link rel="prev" title="converter.runner.modin" href="../modin/index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.runner.pandas">
+<span id="converter-runner-pandas"></span><h1><a class="reference internal" href="#module-converter.runner.pandas" title="converter.runner.pandas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner.pandas</span></code></a><a class="headerlink" href="#module-converter.runner.pandas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.PandasGroupWrapper" title="converter.runner.pandas.PandasGroupWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasGroupWrapper</span></code></a>(values)</p></td>
+<td><p>Base class for the pandas implementation for any and all groups</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.PandasAnyWrapper" title="converter.runner.pandas.PandasAnyWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasAnyWrapper</span></code></a>(values)</p></td>
+<td><p>Pandas specific implementation of the <code class="docutils literal notranslate"><span class="pre">any</span></code> expression</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.PandasAllWrapper" title="converter.runner.pandas.PandasAllWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasAllWrapper</span></code></a>(values)</p></td>
+<td><p>Pandas specific implementation of the <code class="docutils literal notranslate"><span class="pre">all</span></code> expression</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.StrReplace" title="converter.runner.pandas.StrReplace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrReplace</span></code></a>(series_type)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.StrMatch" title="converter.runner.pandas.StrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrMatch</span></code></a>(series_type)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.StrSearch" title="converter.runner.pandas.StrSearch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrSearch</span></code></a>(series_type)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.StrJoin" title="converter.runner.pandas.StrJoin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrJoin</span></code></a>(series_type)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.ConversionError" title="converter.runner.pandas.ConversionError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionError</span></code></a>(value=None, reason=None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.PandasRunner" title="converter.runner.pandas.PandasRunner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasRunner</span></code></a>()</p></td>
+<td><p>Default implementation for a pandas like runner</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.get_logger" title="converter.runner.pandas.get_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logger</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.logical_and_transformer" title="converter.runner.pandas.logical_and_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_and_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.logical_or_transformer" title="converter.runner.pandas.logical_or_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_or_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.logical_not_transformer" title="converter.runner.pandas.logical_not_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_not_transformer</span></code></a>(row, value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.in_transformer" title="converter.runner.pandas.in_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.pandas.not_in_transformer" title="converter.runner.pandas.not_in_transformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">not_in_transformer</span></code></a>(row, lhs, rhs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.pandas.type_converter" title="converter.runner.pandas.type_converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_converter</span></code></a>(to_type, nullable, null_values)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="converter.runner.pandas.get_logger">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.get_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.PandasGroupWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">PandasGroupWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasGroupWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../transformers/transform/index.html#converter.transformers.transform.GroupWrapper" title="converter.transformers.transform.GroupWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.transformers.transform.GroupWrapper</span></code></a></p>
+<p>Base class for the pandas implementation for any and all groups</p>
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasGroupWrapper.in_operator">
+<code class="sig-name descname">in_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasGroupWrapper.in_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is contained in the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs in rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasGroupWrapper.not_in_operator">
+<code class="sig-name descname">not_in_operator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasGroupWrapper.not_in_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the left hand side of the operator is not contained in the right
+hand side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lhs</strong> – The left hand side of the operator</p></li>
+<li><p><strong>rhs</strong> – The right hand side of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if lhs not in rhs, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.PandasAnyWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">PandasAnyWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasAnyWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#converter.runner.pandas.PandasGroupWrapper" title="converter.runner.pandas.PandasGroupWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.runner.pandas.PandasGroupWrapper</span></code></a></p>
+<p>Pandas specific implementation of the <code class="docutils literal notranslate"><span class="pre">any</span></code> expression</p>
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasAnyWrapper.check_fn">
+<code class="sig-name descname">check_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasAnyWrapper.check_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the results of the operator. This should be a reduction of each
+result in the values list into a single value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checks</strong> – The results from the operator comparison</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.PandasAllWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">PandasAllWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasAllWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#converter.runner.pandas.PandasGroupWrapper" title="converter.runner.pandas.PandasGroupWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.runner.pandas.PandasGroupWrapper</span></code></a></p>
+<p>Pandas specific implementation of the <code class="docutils literal notranslate"><span class="pre">all</span></code> expression</p>
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasAllWrapper.check_fn">
+<code class="sig-name descname">check_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasAllWrapper.check_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the results of the operator. This should be a reduction of each
+result in the values list into a single value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checks</strong> – The results from the operator comparison</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reduced result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.logical_and_transformer">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">logical_and_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.logical_and_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.logical_or_transformer">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">logical_or_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.logical_or_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.logical_not_transformer">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">logical_not_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.logical_not_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.in_transformer">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">in_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.in_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.not_in_transformer">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">not_in_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">lhs</span></em>, <em class="sig-param"><span class="n">rhs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.not_in_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.StrReplace">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">StrReplace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrReplace" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.runner.pandas.StrReplace.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">RowType</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">pattern_repl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrReplace.__call__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.StrMatch">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">StrMatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrMatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.runner.pandas.StrMatch.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">RowType</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="p">:</span> <span class="n">re.Pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrMatch.__call__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.StrSearch">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">StrSearch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrSearch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.runner.pandas.StrSearch.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">RowType</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="p">:</span> <span class="n">re.Pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrSearch.__call__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.StrJoin">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">StrJoin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrJoin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.runner.pandas.StrJoin.to_str">
+<code class="sig-name descname">to_str</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrJoin.to_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.StrJoin.concat">
+<code class="sig-name descname">concat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">left</span></em>, <em class="sig-param"><span class="n">right</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrJoin.concat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.StrJoin.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">left</span></em>, <em class="sig-param"><span class="n">join</span></em>, <em class="sig-param"><span class="n">right</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrJoin.join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.StrJoin.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">RowType</span></em>, <em class="sig-param"><span class="n">join</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">elements</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.StrJoin.__call__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.ConversionError">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">ConversionError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.ConversionError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.pandas.type_converter">
+<code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">type_converter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to_type</span></em>, <em class="sig-param"><span class="n">nullable</span></em>, <em class="sig-param"><span class="n">null_values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.type_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.pandas.PandasRunner">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.pandas.</code><code class="sig-name descname">PandasRunner</code><a class="headerlink" href="#converter.runner.pandas.PandasRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#converter.runner.base.BaseRunner" title="converter.runner.base.BaseRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.runner.base.BaseRunner</span></code></a></p>
+<p>Default implementation for a pandas like runner</p>
+<dl class="py attribute">
+<dt id="converter.runner.pandas.PandasRunner.row_value_conversions">
+<code class="sig-name descname">row_value_conversions</code><a class="headerlink" href="#converter.runner.pandas.PandasRunner.row_value_conversions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.runner.pandas.PandasRunner.dataframe_type">
+<code class="sig-name descname">dataframe_type</code><a class="headerlink" href="#converter.runner.pandas.PandasRunner.dataframe_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.runner.pandas.PandasRunner.series_type">
+<code class="sig-name descname">series_type</code><a class="headerlink" href="#converter.runner.pandas.PandasRunner.series_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.coerce_row_types">
+<code class="sig-name descname">coerce_row_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">conversions</span><span class="p">:</span> <span class="n">ColumnConversions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.coerce_row_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.create_series">
+<code class="sig-name descname">create_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.create_series" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.get_dataframe">
+<code class="sig-name descname">get_dataframe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.get_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a dataframe from the extractors data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>extractor</strong> – The extractor providing the input data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The created dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.combine_column">
+<code class="sig-name descname">combine_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">row</span></em>, <em class="sig-param"><span class="n">current_column_value</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>pd.Series<span class="p">, </span>NotSetType<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">entry</span><span class="p">:</span> <span class="n">TransformationEntry</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.combine_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combines the current column value with the result of the
+transformation. If the current value is <code class="docutils literal notranslate"><span class="pre">NotSet</span></code> the value of the
+current transformation will be calculated and applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – The row loaded from the extractor</p></li>
+<li><p><strong>current_column_value</strong> – Series representing the current
+transformed value</p></li>
+<li><p><strong>entry</strong> – The transformation to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The combined column value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.assign">
+<code class="sig-name descname">assign</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">input_row</span><span class="p">:</span> <span class="n">pd.DataFrame</span></em>, <em class="sig-param"><span class="n">output_row</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>pd.DataFrame<span class="p">, </span>NotSetType<span class="p">]</span></span></em>, <em class="sig-param"><span class="o">**</span><span class="n">assignments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.assign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for assigning a series to a dataframe. Some
+implementations of pandas are less efficient if we start with an empty
+dataframe so here we allow for <cite>None</cite> to be passed and create the
+initial dataframe from the first assigned series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_row</strong> – The row loaded from the extractor</p></li>
+<li><p><strong>output_row</strong> – The data frame to assign to or None</p></li>
+<li><p><strong>assignments</strong> – The assignments to apply to the dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The updated dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.apply_transformation_entry">
+<code class="sig-name descname">apply_transformation_entry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">input_df</span><span class="p">:</span> <span class="n">pd.DataFrame</span></em>, <em class="sig-param"><span class="n">entry</span><span class="p">:</span> <span class="n">TransformationEntry</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.apply_transformation_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a single transformation to the dataset returning the result
+as a series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_df</strong> – The dataframe loaded from the extractor</p></li>
+<li><p><strong>entry</strong> – The transformation to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformation result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.pandas.PandasRunner.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">BaseMapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.pandas.PandasRunner.transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner</span></code></a><ul>
+      <li>Previous: <a href="../modin/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner.modin</span></code></a></li>
+      <li>Next: <a href="../../transformers/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.transformers</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/runner/pandas/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

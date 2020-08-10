@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.config.config &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.config.errors" href="../errors/index.html" />
+    <link rel="prev" title="converter.config" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.config.config">
+<span id="converter-config-config"></span><h1><a class="reference internal" href="#module-converter.config.config" title="converter.config.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.config.config</span></code></a><a class="headerlink" href="#module-converter.config.config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.config.config.NotFoundType" title="converter.config.config.NotFoundType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotFoundType</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.config.config.Config" title="converter.config.config.Config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code></a>(argv: Dict[str, Any] = None, config_path: str = None, overrides: Dict[str, Any] = None, env: Dict[str, str] = None)</p></td>
+<td><p>Configuration class that loads the config file, environment,</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="converter.config.config.T">
+<code class="sig-prename descclassname">converter.config.config.</code><code class="sig-name descname">T</code><a class="headerlink" href="#converter.config.config.T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="converter.config.config.ConfigSource">
+<code class="sig-prename descclassname">converter.config.config.</code><code class="sig-name descname">ConfigSource</code><a class="headerlink" href="#converter.config.config.ConfigSource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.config.config.NotFoundType">
+<em class="property">class </em><code class="sig-prename descclassname">converter.config.config.</code><code class="sig-name descname">NotFoundType</code><a class="headerlink" href="#converter.config.config.NotFoundType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.config.config.NotFoundType.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.NotFoundType.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="converter.config.config.NotFound">
+<code class="sig-prename descclassname">converter.config.config.</code><code class="sig-name descname">NotFound</code><a class="headerlink" href="#converter.config.config.NotFound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.config.config.Config">
+<em class="property">class </em><code class="sig-prename descclassname">converter.config.config.</code><code class="sig-name descname">Config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argv</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config_path</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overrides</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">env</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration class that loads the config file, environment,
+command line and overrides and merges them into a single map.</p>
+<dl class="py method">
+<dt id="converter.config.config.Config.__eq__">
+<code class="sig-name descname">__eq__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.get_config_sources">
+<code class="sig-name descname">get_config_sources</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">config_path</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">env</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">argv</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overrides</span><span class="p">:</span> <span class="n">ConfigSource</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.get_config_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all the provided config sources in order of increasing
+precedence, the order is:</p>
+<ol class="arabic simple">
+<li><p>Config file</p></li>
+<li><p>Environment</p></li>
+<li><p>Command line</p></li>
+<li><p>Hard coded overrides</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_path</strong> – The path to the config file</p></li>
+<li><p><strong>env</strong> – The systems environment dict</p></li>
+<li><p><strong>argv</strong> – Dict of config paths to values</p></li>
+<li><p><strong>overrides</strong> – hard coded override values for the config</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An iterable of normalised configs from the various sources</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.process_cli_options">
+<code class="sig-name descname">process_cli_options</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">argv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.process_cli_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.process_env_options">
+<code class="sig-name descname">process_env_options</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">env</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.process_env_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.merge_config_sources">
+<code class="sig-name descname">merge_config_sources</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">ConfigSource</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">second</span><span class="p">:</span> <span class="n">ConfigSource</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">others</span><span class="p">:</span> <span class="n">ConfigSource</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.merge_config_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges any number of config sources the later sources taking precedence
+over the former.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> – The first source</p></li>
+<li><p><strong>second</strong> – The second source</p></li>
+<li><p><strong>others</strong> – The other sources</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The merged config source</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.deep_merge_dictionary_items">
+<code class="sig-name descname">deep_merge_dictionary_items</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">second</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.deep_merge_dictionary_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges the 2 dictionary entries, the process is as follows:</p>
+<ol class="arabic simple">
+<li><p>If the element from the first dictionary is not found use the
+element from the second independent from type</p></li>
+<li><p>If the element in the second dictionary is not a dictionary and has
+been found stop here and use it</p></li>
+<li><p>If the second element isn’t found and the first has use the first
+value</p></li>
+<li><p>If both elements have been found then use the merge of the 2</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> – The first dict or the value from the first dict to try
+to merge</p></li>
+<li><p><strong>second</strong> – The second dict or the value from the second dict to
+try to merge</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The merged result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.normalise_property_names">
+<code class="sig-name descname">normalise_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">ConfigSource</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.normalise_property_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts all names in all levels of the dictionary to lowercase</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>d</strong> – The dictionary to normalise</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The normalised dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.normalise_property">
+<code class="sig-name descname">normalise_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.normalise_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the normalised (lowercase) name with the normalised value.
+If the value is a dictionary it is normalised otherwise the value
+is returned unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key name for the entry</p></li>
+<li><p><strong>value</strong> – The value for the entry</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 2-tuple of the normalised key and value of the entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fallback</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">NotFound</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a property from the configuration from it’s path in the config.
+The path should be dotted path into the config. For example, with the
+config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;baz&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The path <cite>“foo.bar”</cite> would return <cite>“baz”</cite> and the path <cite>“foo”</cite> would
+return <cite>{“bar”: “baz”}</cite>.</p>
+<p>If the path isn’t found in the config the <cite>fallback</cite> value is used if
+one is provided, if no fallback is provided a <cite>KeyError</cite> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path of the requested value into the config.</p></li>
+<li><p><strong>fallback</strong> – The value to use if the path isn’t found.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The found path ot fallback if provided</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.to_yaml">
+<code class="sig-name descname">to_yaml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.to_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a yaml string  representation of the normalised config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The yaml representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.config.config.Config.absolute_path">
+<code class="sig-name descname">absolute_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">p</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.config.config.Config.absolute_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the absolute path relative to the config files directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – The path relative to the config file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The absolute path if both the config path and <cite>p</cite> are set,
+if <cite>p</cite> is <cite>None</cite>, <cite>None</cite> is returned. If the config path is <cite>None</cite>,
+<cite>p</cite> is returned without modification</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.config</span></code></a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.config</span></code></a></li>
+      <li>Next: <a href="../errors/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.config.errors</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/config/config/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

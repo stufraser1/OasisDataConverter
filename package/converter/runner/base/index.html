@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.runner.base &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.runner.dask" href="../dask/index.html" />
+    <link rel="prev" title="converter.runner" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.runner.base">
+<span id="converter-runner-base"></span><h1><a class="reference internal" href="#module-converter.runner.base" title="converter.runner.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner.base</span></code></a><a class="headerlink" href="#module-converter.runner.base" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.base.Converters" title="converter.runner.base.Converters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Converters</span></code></a>()</p></td>
+<td><p>A simple typed namespace. At runtime it is equivalent to a plain dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.runner.base.BaseRunner" title="converter.runner.base.BaseRunner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseRunner</span></code></a>(config: Config, **options)</p></td>
+<td><p>Runs the transformations on the extracted data and writes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.base.BaseAsyncRunner" title="converter.runner.base.BaseAsyncRunner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseAsyncRunner</span></code></a>(config: Config, **options)</p></td>
+<td><p>Runs the transformations on the extracted data and writes it to the data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.runner.base.build_converter" title="converter.runner.base.build_converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_converter</span></code></a>(t)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="converter.runner.base.RowType">
+<code class="sig-prename descclassname">converter.runner.base.</code><code class="sig-name descname">RowType</code><a class="headerlink" href="#converter.runner.base.RowType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.base.Converters">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.base.</code><code class="sig-name descname">Converters</code><a class="headerlink" href="#converter.runner.base.Converters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypedDict</span></code></p>
+<p>A simple typed namespace. At runtime it is equivalent to a plain dict.</p>
+<p>TypedDict creates a dictionary type that expects all of its
+instances to have a certain set of keys, where each key is
+associated with a value of a consistent type. This expectation
+is not checked at runtime but is only enforced by type checkers.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">a</span><span class="p">:</span> <span class="n">Point2D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;good&#39;</span><span class="p">}</span>  <span class="c1"># OK</span>
+<span class="n">b</span><span class="p">:</span> <span class="n">Point2D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;bad&#39;</span><span class="p">}</span>           <span class="c1"># Fails type check</span>
+
+<span class="k">assert</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The type info can be accessed via Point2D.__annotations__. TypedDict
+supports two additional equivalent forms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Point2D</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span><span class="s1">&#39;Point2D&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">Point2D</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span><span class="s1">&#39;Point2D&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>By default, all keys must be present in a TypedDict. It is possible
+to override this by specifying totality.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">point2D</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<p>This means that a point2D TypedDict can have any of the keys omitted.A type
+checker is only expected to support a literal False or True as the value of
+the total argument. True is the default, and makes all items defined in the
+class body be required.</p>
+<p>The class syntax is only supported in Python 3.6+, while two other
+syntax forms work for Python 2.7 and 3.2+</p>
+<dl class="py attribute">
+<dt id="converter.runner.base.Converters.int">
+<code class="sig-name descname">int</code><em class="property"> :Callable[[Any, bool, List], Union[int, None]]</em><a class="headerlink" href="#converter.runner.base.Converters.int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.runner.base.Converters.float">
+<code class="sig-name descname">float</code><em class="property"> :Callable[[Any, bool, List], Union[float, None]]</em><a class="headerlink" href="#converter.runner.base.Converters.float" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.runner.base.Converters.string">
+<code class="sig-name descname">string</code><em class="property"> :Callable[[Any, bool, List], Union[str, None]]</em><a class="headerlink" href="#converter.runner.base.Converters.string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="converter.runner.base.build_converter">
+<code class="sig-prename descclassname">converter.runner.base.</code><code class="sig-name descname">build_converter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em><span class="sig-paren">)</span> &#x2192; Callable<span class="p">[</span><span class="p">[</span>Any<span class="p">, </span>bool<span class="p">, </span>List<span class="p">]</span><span class="p">, </span>Any<span class="p">]</span><a class="headerlink" href="#converter.runner.base.build_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.base.BaseRunner">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.base.</code><code class="sig-name descname">BaseRunner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n">Config</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">converter.runner.base._BaseRunner</span></code></p>
+<p>Runs the transformations on the extracted data and writes
+it to the data loader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – The global config for the system</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="converter.runner.base.BaseRunner.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">BaseMapping</span></em>, <em class="sig-param"><span class="n">loader</span><span class="p">:</span> <span class="n">BaseConnector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the transformation process and swnds the data to the data loader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extractor</strong> – The data connection to extract data from</p></li>
+<li><p><strong>mapping</strong> – Mapping object describing the transformations to apply</p></li>
+<li><p><strong>loader</strong> – The data connection to load data to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.base.BaseRunner.transform">
+<em class="property">abstract </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">BaseMapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseRunner.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extractor</strong> – The data connection to extract data from</p></li>
+<li><p><strong>mapping</strong> – Mapping object describing the transformations to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An iterable containing the transformed data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.runner.base.BaseAsyncRunner">
+<em class="property">class </em><code class="sig-prename descclassname">converter.runner.base.</code><code class="sig-name descname">BaseAsyncRunner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n">Config</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseAsyncRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">converter.runner.base._BaseRunner</span></code></p>
+<p>Runs the transformations on the extracted data and writes it to the data
+loader. The connectors and transformation are all async objects allowing
+for async data providers such as websockets or polled apis to be used as
+a data connection.</p>
+<p>The connectors and transformations should be done in an eager way so that
+each row is processed and passed to the loader as it’s received or cached
+for processing later. After each row if processed the next should be
+awaited so that new data can be extracted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – The global config for the system</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="converter.runner.base.BaseAsyncRunner.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">BaseMapping</span></em>, <em class="sig-param"><span class="n">loader</span><span class="p">:</span> <span class="n">BaseConnector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseAsyncRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="converter.runner.base.BaseAsyncRunner.transform">
+<em class="property">abstract async </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">extractor</span><span class="p">:</span> <span class="n">BaseConnector</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">BaseMapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.runner.base.BaseAsyncRunner.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extractor</strong> – The data connection to extract data from</p></li>
+<li><p><strong>mapping</strong> – Mapping object describing the transformations to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An iterable containing the transformed data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner</span></code></a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner</span></code></a></li>
+      <li>Next: <a href="../dask/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner.dask</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/runner/base/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

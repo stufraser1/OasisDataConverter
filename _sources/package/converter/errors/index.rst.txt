@@ -1,0 +1,16 @@
+:mod:`converter.errors`
+=======================
+
+.. py:module:: converter.errors
+
+
+Module Contents
+---------------
+
+.. py:exception:: ConverterError
+
+   Bases: :class:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+

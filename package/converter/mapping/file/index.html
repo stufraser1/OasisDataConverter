@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.mapping.file &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.runner" href="../../runner/index.html" />
+    <link rel="prev" title="converter.mapping.errors" href="../errors/index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.mapping.file">
+<span id="converter-mapping-file"></span><h1><a class="reference internal" href="#module-converter.mapping.file" title="converter.mapping.file"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping.file</span></code></a><a class="headerlink" href="#module-converter.mapping.file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.file.FileMappingSpec" title="converter.mapping.file.FileMappingSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileMappingSpec</span></code></a>(path: str, config: RawMappingConfig, all_found_configs: Dict[str, Union['FileMappingSpec', RawMappingConfig]], search_paths: List[str])</p></td>
+<td><p>A file representing a conversion mapping between 2 formats.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.mapping.file.FileMapping" title="converter.mapping.file.FileMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileMapping</span></code></a>(config, search_paths: List[str] = None, standard_search_path: str = os.path.join(os.path.dirname(__file__), '..', '_data', 'mappings'), search_working_dir=True, **options)</p></td>
+<td><p>A mapping of all file mapping on the system in the search directories.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.file.get_logger" title="converter.mapping.file.get_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logger</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="converter.mapping.file.get_logger">
+<code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.get_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.file.RawTransformConfig">
+<code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">RawTransformConfig</code><a class="headerlink" href="#converter.mapping.file.RawTransformConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.file.RawColumnConversionConfig">
+<code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">RawColumnConversionConfig</code><a class="headerlink" href="#converter.mapping.file.RawColumnConversionConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.file.RawDirectionalConfig">
+<code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">RawDirectionalConfig</code><a class="headerlink" href="#converter.mapping.file.RawDirectionalConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.file.RawMappingConfig">
+<code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">RawMappingConfig</code><a class="headerlink" href="#converter.mapping.file.RawMappingConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="converter.mapping.file.InvalidMappingFile">
+<em class="property">exception </em><code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">InvalidMappingFile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reason</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.InvalidMappingFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../errors/index.html#converter.errors.ConverterError" title="converter.errors.ConverterError"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.errors.ConverterError</span></code></a></p>
+<p>Error raised when a mapping file fails validation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reason</strong> – String representing the reason for the failure.</p></li>
+<li><p><strong>path</strong> – Path to the failing file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.file.FileMappingSpec">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">FileMappingSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n">RawMappingConfig</span></em>, <em class="sig-param"><span class="n">all_found_configs</span><span class="p">:</span> <span class="n">Dict[str, Union[‘FileMappingSpec’, RawMappingConfig]]</span></em>, <em class="sig-param"><span class="n">search_paths</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.FileMappingSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#converter.mapping.base.MappingSpec" title="converter.mapping.base.MappingSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.mapping.base.MappingSpec</span></code></a></p>
+<p>A file representing a conversion mapping between 2 formats.</p>
+<p>This class will also load any base configs represented by the config.</p>
+<p>The final result is added to <cite>all_found_configs</cite> so that further mappings
+can use this to lookup parents rather than processing the raw config again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – Absolute path to the mapping file.</p></li>
+<li><p><strong>raw_config</strong> – The raw config data from the mapping file.</p></li>
+<li><p><strong>bases</strong> – A list of <cite>MappingFile</cite> objects to use as the base files</p></li>
+<li><p><strong>input_format</strong> – The input format resolved from the parent and current
+configs.</p></li>
+<li><p><strong>output_format</strong> – The output format resolved from the parent and
+current configs.</p></li>
+<li><p><strong>forward</strong> – The configuration for changing from the input format to
+output format (the current config is merged with the parents)</p></li>
+<li><p><strong>reverse</strong> – The configuration for changing from the output format to
+input format (the current config is merged with the parents)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.file.FileMapping">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.file.</code><code class="sig-name descname">FileMapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">search_paths</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standard_search_path</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">os.path.join(os.path.dirname(__file__), '..', '_data', 'mappings')</span></em>, <em class="sig-param"><span class="n">search_working_dir</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.FileMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#converter.mapping.base.BaseMapping" title="converter.mapping.base.BaseMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">converter.mapping.base.BaseMapping</span></code></a></p>
+<p>A mapping of all file mapping on the system in the search directories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – The global config for the system</p></li>
+<li><p><strong>search_paths</strong> – All the paths in the system to check for configs</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="converter.mapping.file.FileMapping.raw_configs">
+<em class="property">property </em><code class="sig-name descname">raw_configs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.FileMapping.raw_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the raw configs from teh system. If they have not yet been loaded
+they are loaded here.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.mapping.file.FileMapping.mapping_specs">
+<em class="property">property </em><code class="sig-name descname">mapping_specs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.file.FileMapping.mapping_specs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all the hydrated mapping configs keyed by their absolute paths.
+If they have not already been loaded they are loaded here.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping</span></code></a><ul>
+      <li>Previous: <a href="../errors/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping.errors</span></code></a></li>
+      <li>Next: <a href="../../runner/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.runner</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/mapping/file/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

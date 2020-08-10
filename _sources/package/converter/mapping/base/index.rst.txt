@@ -1,0 +1,209 @@
+:mod:`converter.mapping.base`
+=============================
+
+.. py:module:: converter.mapping.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   converter.mapping.base.TransformationEntry
+   converter.mapping.base.ColumnConversion
+   converter.mapping.base.DirectionalMapping
+   converter.mapping.base.MappingSpec
+   converter.mapping.base.BaseMapping
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   converter.mapping.base.get_logger
+
+
+.. function:: get_logger()
+
+
+.. py:class:: TransformationEntry(transformation: str, transformation_tree: Union[Tree, None] = None, when: str = 'True', when_tree: Union[Tree, None] = None)
+
+   .. method:: __eq__(self, other)
+
+
+      Return self==value.
+
+
+   .. method:: parse(self)
+
+
+
+
+.. data:: TransformationSet
+   
+
+   
+
+.. py:class:: ColumnConversion
+
+   Bases: :class:`typing.NamedTuple`
+
+   Typed version of namedtuple.
+
+   Usage in Python versions >= 3.6::
+
+       class Employee(NamedTuple):
+           name: str
+           id: int
+
+   This is equivalent to::
+
+       Employee = collections.namedtuple('Employee', ['name', 'id'])
+
+   The resulting class has an extra __annotations__ attribute, giving a
+   dict that maps field names to types.  (The field names are also in
+   the _fields attribute, which is part of the namedtuple API.)
+   Alternative equivalent keyword syntax is also accepted::
+
+       Employee = NamedTuple('Employee', name=str, id=int)
+
+   In Python versions <= 3.5 use::
+
+       Employee = NamedTuple('Employee', [('name', str), ('id', int)])
+
+   .. attribute:: type
+      :annotation: :str
+
+      
+
+   .. attribute:: nullable
+      :annotation: :bool = True
+
+      
+
+   .. attribute:: null_values
+      :annotation: :Set
+
+      
+
+
+.. data:: ColumnConversions
+   
+
+   
+
+.. py:class:: DirectionalMapping
+
+   Bases: :class:`typing.NamedTuple`
+
+   Typed version of namedtuple.
+
+   Usage in Python versions >= 3.6::
+
+       class Employee(NamedTuple):
+           name: str
+           id: int
+
+   This is equivalent to::
+
+       Employee = collections.namedtuple('Employee', ['name', 'id'])
+
+   The resulting class has an extra __annotations__ attribute, giving a
+   dict that maps field names to types.  (The field names are also in
+   the _fields attribute, which is part of the namedtuple API.)
+   Alternative equivalent keyword syntax is also accepted::
+
+       Employee = NamedTuple('Employee', name=str, id=int)
+
+   In Python versions <= 3.5 use::
+
+       Employee = NamedTuple('Employee', [('name', str), ('id', int)])
+
+   .. attribute:: input_format
+      :annotation: :str
+
+      
+
+   .. attribute:: output_format
+      :annotation: :str
+
+      
+
+   .. attribute:: transformation_set
+      :annotation: :TransformationSet
+
+      
+
+   .. attribute:: types
+      :annotation: :Dict[str, ColumnConversion]
+
+      
+
+   .. attribute:: null_values
+      :annotation: :Set
+
+      
+
+
+.. py:class:: MappingSpec(input_format, output_format, forward: DirectionalMapping = None, reverse: DirectionalMapping = None)
+
+   Class holding information about a given mapping
+
+   .. method:: can_run_forwards(self)
+      :property:
+
+
+      Flag whether the mapping file can be applied forwards.
+
+      :return: True is the mapping can be applied forwards, False otherwise
+
+
+   .. method:: can_run_in_reverse(self)
+      :property:
+
+
+      Flag whether the mapping file can be applied in reverse.
+
+      :return: True is the mapping can be applied in reverse, False otherwise
+
+
+
+.. py:class:: BaseMapping(config: Config, input_format: str = None, output_format: str = None, **options)
+
+   Class describing the mapping from the input to the
+   output formats.
+
+   :param config: The global config for the system
+   :param input_format: The start of the conversion path
+   :param output_format: The end of the conversion path
+
+   .. method:: mapping_specs(self)
+      :property:
+
+
+      Returns a list of ``MappingSpec`` objects described by the mapping
+
+
+   .. method:: mapping_graph(self)
+      :property:
+
+
+      Creates the graph to represent the relationships between formats in
+      the system. It it has not already been generated it is generated here.
+
+
+   .. method:: get_transformations(self)
+
+
+      Gets a column transformations and full transformation set for the
+      provided input and output paths.
+
+      :return: The mappings along the conversion path.
+
+
+

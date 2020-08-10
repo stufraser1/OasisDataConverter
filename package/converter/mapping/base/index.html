@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter.mapping.base &#8212; Oasis Data Converter  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="converter.mapping.errors" href="../errors/index.html" />
+    <link rel="prev" title="converter.mapping" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-converter.mapping.base">
+<span id="converter-mapping-base"></span><h1><a class="reference internal" href="#module-converter.mapping.base" title="converter.mapping.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping.base</span></code></a><a class="headerlink" href="#module-converter.mapping.base" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.base.TransformationEntry" title="converter.mapping.base.TransformationEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransformationEntry</span></code></a>(transformation: str, transformation_tree: Union[Tree, None] = None, when: str = 'True', when_tree: Union[Tree, None] = None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.mapping.base.ColumnConversion" title="converter.mapping.base.ColumnConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColumnConversion</span></code></a>()</p></td>
+<td><p>Typed version of namedtuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.base.DirectionalMapping" title="converter.mapping.base.DirectionalMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DirectionalMapping</span></code></a>()</p></td>
+<td><p>Typed version of namedtuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#converter.mapping.base.MappingSpec" title="converter.mapping.base.MappingSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MappingSpec</span></code></a>(input_format, output_format, forward: DirectionalMapping = None, reverse: DirectionalMapping = None)</p></td>
+<td><p>Class holding information about a given mapping</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.base.BaseMapping" title="converter.mapping.base.BaseMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseMapping</span></code></a>(config: Config, input_format: str = None, output_format: str = None, **options)</p></td>
+<td><p>Class describing the mapping from the input to the</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#converter.mapping.base.get_logger" title="converter.mapping.base.get_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logger</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="converter.mapping.base.get_logger">
+<code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.get_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.base.TransformationEntry">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">TransformationEntry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transformation</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">transformation_tree</span><span class="p">:</span> <span class="n">Union[Tree, None]</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">when</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'True'</span></em>, <em class="sig-param"><span class="n">when_tree</span><span class="p">:</span> <span class="n">Union[Tree, None]</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.TransformationEntry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="converter.mapping.base.TransformationEntry.__eq__">
+<code class="sig-name descname">__eq__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.TransformationEntry.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.mapping.base.TransformationEntry.parse">
+<code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.TransformationEntry.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.base.TransformationSet">
+<code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">TransformationSet</code><a class="headerlink" href="#converter.mapping.base.TransformationSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.base.ColumnConversion">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">ColumnConversion</code><a class="headerlink" href="#converter.mapping.base.ColumnConversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.NamedTuple</span></code></p>
+<p>Typed version of namedtuple.</p>
+<p>Usage in Python versions &gt;= 3.6:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<p>This is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The resulting class has an extra __annotations__ attribute, giving a
+dict that maps field names to types.  (The field names are also in
+the _fields attribute, which is part of the namedtuple API.)
+Alternative equivalent keyword syntax is also accepted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Python versions &lt;= 3.5 use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt id="converter.mapping.base.ColumnConversion.type">
+<code class="sig-name descname">type</code><em class="property"> :str</em><a class="headerlink" href="#converter.mapping.base.ColumnConversion.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.ColumnConversion.nullable">
+<code class="sig-name descname">nullable</code><em class="property"> :bool = True</em><a class="headerlink" href="#converter.mapping.base.ColumnConversion.nullable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.ColumnConversion.null_values">
+<code class="sig-name descname">null_values</code><em class="property"> :Set</em><a class="headerlink" href="#converter.mapping.base.ColumnConversion.null_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="converter.mapping.base.ColumnConversions">
+<code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">ColumnConversions</code><a class="headerlink" href="#converter.mapping.base.ColumnConversions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.base.DirectionalMapping">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">DirectionalMapping</code><a class="headerlink" href="#converter.mapping.base.DirectionalMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.NamedTuple</span></code></p>
+<p>Typed version of namedtuple.</p>
+<p>Usage in Python versions &gt;= 3.6:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<p>This is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The resulting class has an extra __annotations__ attribute, giving a
+dict that maps field names to types.  (The field names are also in
+the _fields attribute, which is part of the namedtuple API.)
+Alternative equivalent keyword syntax is also accepted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Python versions &lt;= 3.5 use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt id="converter.mapping.base.DirectionalMapping.input_format">
+<code class="sig-name descname">input_format</code><em class="property"> :str</em><a class="headerlink" href="#converter.mapping.base.DirectionalMapping.input_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.DirectionalMapping.output_format">
+<code class="sig-name descname">output_format</code><em class="property"> :str</em><a class="headerlink" href="#converter.mapping.base.DirectionalMapping.output_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.DirectionalMapping.transformation_set">
+<code class="sig-name descname">transformation_set</code><em class="property"> :TransformationSet</em><a class="headerlink" href="#converter.mapping.base.DirectionalMapping.transformation_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.DirectionalMapping.types">
+<code class="sig-name descname">types</code><em class="property"> :Dict[str, ColumnConversion]</em><a class="headerlink" href="#converter.mapping.base.DirectionalMapping.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="converter.mapping.base.DirectionalMapping.null_values">
+<code class="sig-name descname">null_values</code><em class="property"> :Set</em><a class="headerlink" href="#converter.mapping.base.DirectionalMapping.null_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.base.MappingSpec">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">MappingSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_format</span></em>, <em class="sig-param"><span class="n">output_format</span></em>, <em class="sig-param"><span class="n">forward</span><span class="p">:</span> <span class="n">DirectionalMapping</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reverse</span><span class="p">:</span> <span class="n">DirectionalMapping</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.MappingSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class holding information about a given mapping</p>
+<dl class="py method">
+<dt id="converter.mapping.base.MappingSpec.can_run_forwards">
+<em class="property">property </em><code class="sig-name descname">can_run_forwards</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.MappingSpec.can_run_forwards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag whether the mapping file can be applied forwards.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True is the mapping can be applied forwards, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.mapping.base.MappingSpec.can_run_in_reverse">
+<em class="property">property </em><code class="sig-name descname">can_run_in_reverse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.MappingSpec.can_run_in_reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag whether the mapping file can be applied in reverse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True is the mapping can be applied in reverse, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="converter.mapping.base.BaseMapping">
+<em class="property">class </em><code class="sig-prename descclassname">converter.mapping.base.</code><code class="sig-name descname">BaseMapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n">Config</span></em>, <em class="sig-param"><span class="n">input_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.BaseMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class describing the mapping from the input to the
+output formats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – The global config for the system</p></li>
+<li><p><strong>input_format</strong> – The start of the conversion path</p></li>
+<li><p><strong>output_format</strong> – The end of the conversion path</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="converter.mapping.base.BaseMapping.mapping_specs">
+<em class="property">property </em><code class="sig-name descname">mapping_specs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.BaseMapping.mapping_specs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of <code class="docutils literal notranslate"><span class="pre">MappingSpec</span></code> objects described by the mapping</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.mapping.base.BaseMapping.mapping_graph">
+<em class="property">property </em><code class="sig-name descname">mapping_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.BaseMapping.mapping_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the graph to represent the relationships between formats in
+the system. It it has not already been generated it is generated here.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="converter.mapping.base.BaseMapping.get_transformations">
+<code class="sig-name descname">get_transformations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#converter.mapping.base.BaseMapping.get_transformations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a column transformations and full transformation set for the
+provided input and output paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The mappings along the conversion path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Oasis Data Converter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config.html#debugging">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/data-connections/index.html">Data Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/mappings/index.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/runners/index.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../components/cli/index.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping</span></code></a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping</span></code></a></li>
+      <li>Next: <a href="../errors/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">converter.mapping.errors</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, OasisLMF.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/package/converter/mapping/base/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
