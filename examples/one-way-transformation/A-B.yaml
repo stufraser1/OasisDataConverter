@@ -21,4 +21,4 @@ reverse:
     a:
       - transformation: c / 2
     b:
-      - transformation: d - 3
+      - transformation: d - 5
